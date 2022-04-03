@@ -1,0 +1,30 @@
+.main{
+    padding: 75px;
+    margin-left: 300px;
+    position: relative;
+}
+tr{
+    padding: 10px;
+}
+table{
+    background-color:cornflowerblue;
+    border-radius: 20px;
+    padding: 50px;
+}
+td{
+    padding: 20px;
+    font-size: large;
+}
+h1{
+    text-align: center;
+}
+.nav{
+   margin-top: 20px;
+}
+button{
+    padding: 5px;
+    width: 2cm;
+}
+.search{
+    position: relative;
+}

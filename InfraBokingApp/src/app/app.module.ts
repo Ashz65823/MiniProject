@@ -9,6 +9,18 @@ import { RegisterComponent } from './register/register.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes:Routes=[
+  {path:"login", component:LoginComponent},
+  {path:"booking",component:BookingComponent},
+  {path:"register",component:RegisterComponent},
+  {path:"home",component:HomeComponent},
+  {path:"",component:HomeComponent},
+  {path:"**",component:NotfoundComponent}
+];
 
 @NgModule({
   declarations: [
@@ -18,10 +30,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
     RegisterComponent,
     MenuComponent,
     FooterComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    RouterModule,
     HttpClientModule
   ],
   providers: [],
