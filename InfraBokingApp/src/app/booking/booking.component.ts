@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Booking } from 'src/model/Booking';
+import { Employee } from 'src/model/Employee';
 import { BookingService } from '../service/booking.service';
 
 @Component({
@@ -10,11 +11,12 @@ import { BookingService } from '../service/booking.service';
 export class BookingComponent implements OnInit {
 
   booking:Booking[]=[]
+  stack:Employee[]=[]
   constructor(private service:BookingService) {
     this.loadBooking();
    }
    loadBooking() {
-    this.service.getAllBookings().subscribe(success => this.booking = success)
+    this.service.getAllBookings().subscribe(success => this.booking = success);
    }
 
    getAllBooking(){

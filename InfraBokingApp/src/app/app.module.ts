@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MenuComponent } from './menu/menu.component';
@@ -17,9 +17,11 @@ const routes:Routes=[
   {path:"login", component:LoginComponent},
   {path:"booking",component:BookingComponent},
   {path:"register",component:RegisterComponent},
-  {path:"home",component:HomeComponent},
+  {path:"home",redirectTo: ""},
   {path:"",component:HomeComponent},
-  {path:"**",component:NotfoundComponent}
+  {path:"**",component:NotfoundComponent},
+  {path:"menu",component:MenuComponent},
+  {path:"footer",component:FooterComponent}
 ];
 
 @NgModule({
@@ -36,7 +38,7 @@ const routes:Routes=[
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule,
+    RouterModule.forRoot(routes),
     HttpClientModule
   ],
   providers: [],

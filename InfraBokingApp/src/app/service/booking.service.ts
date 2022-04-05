@@ -15,6 +15,5 @@ export class BookingService {
   }
   getBookingbyId(id:number){
     return this.http.get<Booking[]>('http://localhost:9051/booking/'+id); 
-
   }
 }
