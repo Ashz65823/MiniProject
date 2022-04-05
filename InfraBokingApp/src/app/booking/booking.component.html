@@ -19,9 +19,14 @@
         <div class="content">
             <div class="row">
                 <div class="col-6">
-                    <h2 style="text-align: center;">All Booking </h2>
+                    <button (click)="getAllBooking()" style="margin: 20px;">Get All Booking</button>
                     <!--button (click)="getAllBooking()">Get all Booking</button-->
-                    <table *ngIf="booking.length>0" border="2">
+                    <table *ngIf="showOrNot2" border="2">
+                        <tr>
+                            <td colspan="6">
+                                <h2 style="text-align: center;">All Booking </h2>
+                            </td>
+                        </tr>
                         <tr>
                             <th>Booking-Id</th>
                             <th>Date of booking</th>
@@ -30,8 +35,8 @@
                             <th>UserName</th>
                             <th>Booking Code</th>
                         </tr>
-                        <tr *ngFor="let book of booking">
-                            <td>{{book.stakeholder.id}}</td>
+                        <tr *ngFor="let book of booking;">
+                            <td>{{book.bookingId}}</td>
                             <td>{{book.dateOfBooking}}</td>
                             <td>{{book.participants}}</td>
                             <td>{{book.purpose}}</td>
@@ -42,7 +47,7 @@
                 </div>
                 <div class="col-6">
                     <h2 style="text-align: center;">Booking By Id </h2>
-                    <form #visible="ngForm">
+                    <form #visible="ngForm" style="align-items: center;">
                         <table>
                             <tr>
                                 <td>
@@ -53,14 +58,14 @@
                                         [(ngModel)]="booking.bookingId">
                                 </td>
                                 <td>
-                                    <button (click)="getBookingbyId(booking.bookingId)">Get Booking</button>
+                                    <button (click)="getBookingbyId(iD=booking.bookingId)">Get Booking</button>
                                 </td>
                             </tr>
 
                         </table>
                     </form>
                     <!--button (click)="getAllBooking()">Get all Booking</button-->
-                    <table *ngIf="bookingId>0 && bookingId<3">
+                    <table *ngIf="showOrNot">
                         <tr>
                             <th>Booking-Id</th>
                             <th>Date of booking</th>
@@ -69,13 +74,16 @@
                             <th>UserName</th>
                             <th>Booking Code</th>
                         </tr>
-                        <tr *ngFor="let book of booking;let i=index">
-                                <td>{{book.stakeholder.id}}</td>
+
+                        <tr *ngFor="let book of booking first as isFirst">
+                            <ng-container *ngIf="book==isFirst ">
+                                <td>{{book.bookingId}}</td>
                                 <td>{{book.dateOfBooking}}</td>
                                 <td>{{book.participants}}</td>
                                 <td>{{book.purpose}}</td>
                                 <td>{{book.stakeholder.email}}</td>
                                 <td>{{book.bookedRooms[0].code}}</td>
+                            </ng-container>
                         </tr>
                     </table>
                 </div>

@@ -11,8 +11,9 @@ import { BookingService } from '../service/booking.service';
 export class BookingComponent implements OnInit {
 
   booking:Booking[]=[]
-  id:number;
   stack:Employee[]=[]
+  showOrNot:boolean=false;
+  showOrNot2:boolean=false;
   constructor(private service:BookingService) {
     this.loadBooking();
    }
@@ -21,14 +22,18 @@ export class BookingComponent implements OnInit {
    }
 
    getAllBooking(){
+     this.showOrNot2=true;
      this.service.getAllBookings().subscribe(s=>console.log(s))
    }
   
    getBookingbyId(id:number){
-     console.log(id)
-     if(id>0 && id<3)
+     console.log("+++++++"+id)
+     if(id>0 && id<4)
      {
-      this.service.getBookingbyId(id).subscribe(s=>console.log(s))
+      this.service.getBookingbyId(id).subscribe(s=>{
+        console.log(s)
+        this.showOrNot=true;
+      })
      }
      else{
        alert("Invalid user id")
