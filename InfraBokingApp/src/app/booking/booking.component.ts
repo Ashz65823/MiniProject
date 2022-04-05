@@ -11,6 +11,7 @@ import { BookingService } from '../service/booking.service';
 export class BookingComponent implements OnInit {
 
   booking:Booking[]=[]
+  id:number;
   stack:Employee[]=[]
   constructor(private service:BookingService) {
     this.loadBooking();
@@ -24,7 +25,14 @@ export class BookingComponent implements OnInit {
    }
   
    getBookingbyId(id:number){
-     this.service.getBookingbyId(id).subscribe(s=>console.log(s))
+     console.log(id)
+     if(id>0 && id<3)
+     {
+      this.service.getBookingbyId(id).subscribe(s=>console.log(s))
+     }
+     else{
+       alert("Invalid user id")
+     }
    }
   ngOnInit() {
   }

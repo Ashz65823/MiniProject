@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
