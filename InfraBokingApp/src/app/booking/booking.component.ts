@@ -27,11 +27,10 @@ export class BookingComponent implements OnInit {
    }
   
    getBookingbyId(id:number){
-     console.log("+++++++"+id)
      if(id>0 && id<4)
      {
       this.service.getBookingbyId(id).subscribe(s=>{
-        console.log(s)
+       
         this.showOrNot=true;
       })
      }
